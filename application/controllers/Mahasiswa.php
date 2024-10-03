@@ -28,12 +28,23 @@ class mahasiswa extends CI_Controller
                 'matakuliah' => $this->input->post('matakuliah'),
                 'sks' => $this->input->post('sks'),
                 'semester' => $this->input->post('semester'),
-                'jurusan' => $this->input->post('jurusan')
-                  
+                'jurusan' => $this->input->post('jurusan'),
             ];
-            $this->db->insert('mahasiswa',$data);
-            redirect('mahasiswa');
+       $this->db->insert('mahasiswa',$data);
+       redirect('mahasiswa');
         }
+
+
+     }
+    public function ubah()
+    {
+        $this->Mahasiswa_model->ubahDataMahasiswa($id);
+        redirect('mahasiswa');
     }
 
+    public function hapus($id)
+    {
+        $this->Mahasiswa_model->hapusDataMahasiswa($id);
+        redirect('mahasiswa');
+    }
  }
